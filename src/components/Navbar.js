@@ -1,7 +1,5 @@
 import React from "react";
-import { useState } from "react";
 import styled from "styled-components";
-import { Squash as Hamburger } from "hamburger-react";
 
 const NavStyles = styled.nav`
   height: 100vh;
@@ -126,53 +124,42 @@ const NavStyles = styled.nav`
     }
   }
 `;
-const HamburgerStyle = styled.div`
-  position: fixed;
-  top: 35px;
-  right: 35px;
-`;
 
-export default function Navbar() {
-  const [isOpen, setOpen] = useState(false);
+export default function Navbar({ isOpen }) {
   return (
-    <>
-      <HamburgerStyle>
-        <Hamburger color="var(--green)" toggled={isOpen} toggle={setOpen} />
-      </HamburgerStyle>
-      <NavStyles open={isOpen}>
-        <ul>
-          <li>
-            <a href="">
-              <span className="navTitle">Home</span>
-              <span className="material-icons icon">home</span>
-            </a>
-          </li>
-          <li>
-            <a href="">
-              <span className="navTitle">About</span>
-              <span className="material-icons icon">person</span>
-            </a>
-          </li>
-          <li>
-            <a href="">
-              <span className="navTitle">Portfolio</span>
-              <span className="material-icons icon">work_outline</span>
-            </a>
-          </li>
-          <li>
-            <a href="">
-              <span className="navTitle">Blog</span>
-              <span className="material-icons icon">rss_feed</span>
-            </a>
-          </li>
-          <li>
-            <a href="">
-              <span className="navTitle">Email</span>
-              <span className="material-icons icon">email</span>
-            </a>
-          </li>
-        </ul>
-      </NavStyles>
-    </>
+    <NavStyles open={isOpen}>
+      <ul>
+        <li>
+          <a href="">
+            <span className="navTitle">Home</span>
+            <span className="material-icons icon">home</span>
+          </a>
+        </li>
+        <li>
+          <a href="">
+            <span className="navTitle">About</span>
+            <span className="material-icons icon">person</span>
+          </a>
+        </li>
+        <li>
+          <a href="">
+            <span className="navTitle">Portfolio</span>
+            <span className="material-icons icon">work_outline</span>
+          </a>
+        </li>
+        <li>
+          <a href="">
+            <span className="navTitle">Blog</span>
+            <span className="material-icons icon">rss_feed</span>
+          </a>
+        </li>
+        <li>
+          <a href="">
+            <span className="navTitle">Email</span>
+            <span className="material-icons icon">email</span>
+          </a>
+        </li>
+      </ul>
+    </NavStyles>
   );
 }

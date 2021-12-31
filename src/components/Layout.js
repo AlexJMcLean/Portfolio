@@ -2,11 +2,9 @@ import React from "react";
 import styled from "styled-components";
 import "normalize.css";
 
-import Navbar from "./Navbar";
-import SocialLinks from "./SocialLinks";
 import GlobalStyles from "../styles/GlobalStyles";
 import Typography from "../styles/Typography";
-
+import MenuLinks from "./MenuLinks";
 const BodyStyles = styled.div``;
 
 export default function Layout({ children }) {
@@ -14,8 +12,8 @@ export default function Layout({ children }) {
     <>
       <GlobalStyles />
       <Typography />
-      <Navbar />
-      <SocialLinks />
+      <MenuLinks />
+
       <BodyStyles>{children}</BodyStyles>
     </>
   );
