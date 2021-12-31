@@ -8,6 +8,10 @@ const GlobalStyles = createGlobalStyle`
     --white: #e6f1ff;
     --slate: #8892b0;
     --grey: #efefef;
+
+    
+    //Mobile Media Query
+    --mobile: 576px;
   }
   
 `;

@@ -3,11 +3,7 @@ import "./App.css";
 import Layout from "./components/Layout";
 
 function App() {
-  return (
-    <Layout>
-      <h1>Test</h1>
-    </Layout>
-  );
+  return <Layout></Layout>;
 }
 
 export default App;
