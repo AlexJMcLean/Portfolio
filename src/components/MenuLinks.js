@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { Squash as Hamburger } from "hamburger-react";
 import logo from "../assets/b-logo-small.png";
 
-import Navbar from "./NavBar";
+import Navbar from "./Navbar";
 import SocialLinks from "./SocialLinks";
 
 const HamburgerStyle = styled.div`

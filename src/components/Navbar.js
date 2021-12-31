@@ -13,7 +13,6 @@ const NavStyles = styled.nav`
     background: var(--darkNavy);
     width: 100vw;
     text-align: left;
-    padding: 2rem;
     position: absolute;
     top: 0;
     left: 0;
@@ -36,9 +35,14 @@ const NavStyles = styled.nav`
     // Mobile
     @media (max-width: 576px) {
       height: 100%;
-      max-height: 500px;
+      max-height: 350px;
       justify-content: space-evenly;
       margin-top: 50px;
+      padding: 0;
+      width: 60%;
+      margin: 150px auto 50px;
+      display: flex;
+      align-items: baseline;
     }
     // Desktop
     @media (min-width: 577px) {
@@ -72,12 +76,16 @@ const NavStyles = styled.nav`
     }
     // Mobile
     @media (max-width: 576px) {
-      font-size: 2rem;
+      font-size: 1.5rem;
+      line-height: 35px;
+      
       .navTitle {
       }
       .icon {
-        height: 50px;
-        width: 50px;
+        height: 35px;
+        width: 35px;
+        position: relative;
+        top: 3px;
       }
       &:hover {
         span {
@@ -102,7 +110,6 @@ const NavStyles = styled.nav`
         position: absolute;
         right: 15px;
         top: 0;
-
         padding: 0 20px 0 30px;
         z-index: -1;
         border-radius: 25px 0 0 25px;
