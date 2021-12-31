@@ -5,7 +5,7 @@ import { Squash as Hamburger } from "hamburger-react";
 import logo from "../assets/b-logo-small.png";
 
 import Navbar from "./Navbar";
-import SocialLinks from "./SocialLinks";
+
 
 const HamburgerStyle = styled.div`
   position: fixed;
@@ -44,7 +44,6 @@ export default function MenuLinks() {
           size={35}
         />
       </HamburgerStyle>
-      <SocialLinks />
       <Navbar isOpen={isOpen} />
     </>
   );

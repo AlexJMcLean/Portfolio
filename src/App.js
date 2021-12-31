@@ -1,4 +1,3 @@
-import "./App.css";
 import { Routes, Route } from "react-router-dom";
 
 import Layout from "./components/Layout";
@@ -12,11 +11,11 @@ function App() {
   return (
     <Layout>
       <Routes>
-        <Route element="/" component={Main} />
-        <Route element="/blog" component={Blog} />
-        <Route element="/about" component={About} />
-        <Route element="/portfolio" component={Portfolio} />
-        <Route element="/contact" component={Contact} />
+        <Route path="blog" element={<Blog />} />
+        <Route path="about" element={<About />} />
+        <Route path="portfolio" element={<Portfolio />} />
+        <Route path="contact" element={<Contact />} />
+        <Route path="/" element={<Main />} />
       </Routes>
     </Layout>
   );

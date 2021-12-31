@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const NavStyles = styled.nav`
   height: 100vh;
@@ -137,34 +138,34 @@ export default function Navbar({ isOpen }) {
     <NavStyles open={isOpen}>
       <ul>
         <li>
-          <a href="">
+          <Link to="/">
             <span className="navTitle">Home</span>
             <span className="material-icons icon">home</span>
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="">
+          <Link to="/about">
             <span className="navTitle">About</span>
             <span className="material-icons icon">person</span>
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="">
+          <Link to="/portfolio">
             <span className="navTitle">Portfolio</span>
             <span className="material-icons icon">work_outline</span>
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="">
+          <Link to="/blog">
             <span className="navTitle">Blog</span>
             <span className="material-icons icon">rss_feed</span>
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="">
+          <Link to="/email">
             <span className="navTitle">Email</span>
             <span className="material-icons icon">email</span>
-          </a>
+          </Link>
         </li>
       </ul>
     </NavStyles>

@@ -5,7 +5,14 @@ import "normalize.css";
 import GlobalStyles from "../styles/GlobalStyles";
 import Typography from "../styles/Typography";
 import MenuLinks from "./MenuLinks";
-const BodyStyles = styled.div``;
+
+
+const BodyStyles = styled.div`
+position: absolute;
+  width: 80%;
+  margin: 300px auto; 
+  background-color: white;
+`;
 
 export default function Layout({ children }) {
   return (

@@ -13,6 +13,11 @@ const GlobalStyles = createGlobalStyle`
   body {
     background-color: var(--navy);
   }
+
+  h2 {
+    font-size: 3rem;
+    color: white;
+  }
   
 `;
 
