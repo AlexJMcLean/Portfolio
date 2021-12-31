@@ -1,8 +1,9 @@
 import React from "react";
-import { useEffect } from "react";
 import styled from "styled-components";
+import NavbarMobile from "./NavbarMobile";
 
 const NavStyles = styled.nav`
+  display: none;
   @media (min-width: 577px) and (min-height: 531px) {
     height: 100vh;
     width: auto;
@@ -71,53 +72,12 @@ const NavStyles = styled.nav`
       color: var(--white);
     }
   }
-
-  @media (max-width: 576px) and (max-height: 530px) {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 100vh;
-    width: 100%;
-    text-align: left;
-    padding: 2rem;
-    position: absolute;
-    top: 0;
-    left: 0;
-    transition: transform 0.3s ease-in-out;
-
-    &:active {
-      left: 0;
-    }
-  }
-`;
-
-const Hamburger = styled.div`
-  display: none;
-
-  .bar {
-    display: block;
-    width: 25px;
-    height: 3px;
-    margin: 5px auto;
-    -webkit-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out;
-    background-color: #101010;
-  }
-
-  @media (max-width: 576px) and (max-height: 530px) {
-    display: block;
-    cursor: pointer;
-  }
 `;
 
 export default function Navbar({ menuItems }) {
   return (
     <>
-      <Hamburger>
-        <div />
-        <div />
-        <div />
-      </Hamburger>
+      <NavbarMobile />
       <NavStyles id="nav-menu">
         <ul>
           <li>
