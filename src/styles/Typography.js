@@ -6,22 +6,39 @@ import { createGlobalStyle } from "styled-components";
 </style>;
 
 const Typography = createGlobalStyle`
+    :root {
+      --title-font: "Calibre","Inter","San Francisco","SF Pro Text",-apple-system,system-ui,sans-serif;
+      --mono-font: 'Anonymous Pro', monospace;
+      --body-font:'Exo 2', sans-serif;
+    }
     body{
-       font-family : 'Exo 2', sans-serif;
+       font-family : var(--body-font);
        color: var(--darkNavy);
        font-weight: 200;
     }
 
     .font-mono {
-      font-family: 'Anonymous Pro', monospace;
+      font-family: var(--mono-font);
       color: var(--green);
     }
 
     .font-name {
-      font-family: 'Poppins', sans-serif;
+      font-family: var(--title-font);
       color: var(--lightSlate);
       font-size: clamp(40px,8vw,80px);
       line-height: 1.1em;
+    }
+
+    .font-title {
+      font-family: var(--title-font);
+      color: var(--white);
+      font-size: 5rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0px;
+      span {
+        color:var(--green);
+      }
     }
 
     p {
