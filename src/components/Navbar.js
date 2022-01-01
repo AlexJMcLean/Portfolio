@@ -63,6 +63,8 @@ const NavStyles = styled.nav`
     //Desktop
     @media (min-width: 577px) {
       flex-direction: row;
+      width: 100%;
+      height: 100%;
     }
   }
 
@@ -79,7 +81,7 @@ const NavStyles = styled.nav`
     @media (max-width: 576px) {
       font-size: 1.5rem;
       line-height: 35px;
-      
+
       .navTitle {
       }
       .icon {
@@ -118,6 +120,14 @@ const NavStyles = styled.nav`
         opacity: 0;
         transition: all 0.3s;
       }
+      .icon {
+        width: 100%;
+        height: 100%;
+        margin: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
       &:hover {
         background-color: var(--green);
         span {
@@ -155,7 +165,7 @@ export default function Navbar({ isOpen }) {
             <span className="material-icons icon">work_outline</span>
           </Link>
         </li>
-        <li> 
+        <li>
           <Link to="/blog">
             <span className="navTitle">Blog</span>
             <span className="material-icons icon">rss_feed</span>
