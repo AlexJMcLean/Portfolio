@@ -11,6 +11,7 @@ const HamburgerStyle = styled.div`
   position: fixed;
   top: 35px;
   right: 35px;
+  z-index: 3;
   @media (min-width: 577px) {
     display: none;
   }
