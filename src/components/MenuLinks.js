@@ -30,11 +30,6 @@ export default function MenuLinks() {
   const [isOpen, setOpen] = useState(false);
   return (
     <>
-      <LogoStyle>
-        <a href="">
-          <img src={logo} alt="Logo" />
-        </a>
-      </LogoStyle>
       <HamburgerStyle>
         <Hamburger
           color="var(--green)"
