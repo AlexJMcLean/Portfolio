@@ -143,36 +143,36 @@ const NavStyles = styled.nav`
   }
 `;
 
-export default function Navbar({ isOpen }) {
+export default function Navbar({ isOpen, setOpen }) {
   return (
     <NavStyles open={isOpen}>
       <ul>
         <li>
-          <Link to="/">
+          <Link to="/" onClick={() => setOpen(!isOpen)}>
             <span className="navTitle">Home</span>
             <span className="material-icons icon">home</span>
           </Link>
         </li>
         <li>
-          <Link to="/about">
+          <Link to="/about" onClick={() => setOpen(!isOpen)}>
             <span className="navTitle">About</span>
             <span className="material-icons icon">person</span>
           </Link>
         </li>
         <li>
-          <Link to="/portfolio">
+          <Link to="/portfolio" onClick={() => setOpen(!isOpen)}>
             <span className="navTitle">Portfolio</span>
             <span className="material-icons icon">work_outline</span>
           </Link>
         </li>
         <li>
-          <Link to="/blog">
+          <Link to="/blog" onClick={() => setOpen(!isOpen)}>
             <span className="navTitle">Blog</span>
             <span className="material-icons icon">rss_feed</span>
           </Link>
         </li>
         <li>
-          <Link to="/email">
+          <Link to="/email" onClick={() => setOpen(!isOpen)}>
             <span className="navTitle">Email</span>
             <span className="material-icons icon">email</span>
           </Link>

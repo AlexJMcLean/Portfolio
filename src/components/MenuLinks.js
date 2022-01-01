@@ -40,7 +40,7 @@ export default function MenuLinks() {
           size={35}
         />
       </HamburgerStyle>
-      <Navbar isOpen={isOpen} />
+      <Navbar isOpen={isOpen} setOpen={setOpen}/>
     </>
   );
 }
