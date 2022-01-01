@@ -18,11 +18,14 @@ const GlobalStyles = createGlobalStyle`
     background-color: var(--navy);
   }
 
+  h1,h2,h3,p {
+    margin: 0 0 30px 0;
+  }
+
   h2 {
     font-size: 3rem;
     color: white;
   }
-  
 `;
 
 export default GlobalStyles;
