@@ -10,6 +10,7 @@ const Typography = createGlobalStyle`
       --title-font: "Calibre","Inter","San Francisco","SF Pro Text",-apple-system,system-ui,sans-serif;
       --mono-font: 'Anonymous Pro', monospace;
       --body-font:'Exo 2', sans-serif;
+      --title-font-size: clamp(40px,8vw,80px);
     }
     body{
        font-family : var(--body-font);
@@ -25,14 +26,14 @@ const Typography = createGlobalStyle`
     .font-name {
       font-family: var(--title-font);
       color: var(--lightSlate);
-      font-size: clamp(40px,8vw,80px);
+      font-size: var(--title-font-size);
       line-height: 1.1em;
     }
 
     .font-title {
       font-family: var(--title-font);
       color: var(--white);
-      font-size: 5rem;
+      font-size: var(--title-font-size);
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0px;
