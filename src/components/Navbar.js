@@ -155,7 +155,7 @@ export default function Navbar({ isOpen }) {
             <span className="material-icons icon">work_outline</span>
           </Link>
         </li>
-        <li>
+        <li> 
           <Link to="/blog">
             <span className="navTitle">Blog</span>
             <span className="material-icons icon">rss_feed</span>

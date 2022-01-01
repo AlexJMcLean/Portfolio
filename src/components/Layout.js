@@ -8,7 +8,7 @@ import MenuLinks from "./MenuLinks";
 
 
 const BodyStyles = styled.div`
-position: absolute;
+  
   width: 80%;
   margin: 300px auto; 
   background-color: white;
