@@ -44,9 +44,9 @@ const Typography = createGlobalStyle`
 
     p {
       color: var(--slate);
-      font-size: 1.3rem;
-      line-height: 2rem;
+      line-height: 1.4rem;
     }
+
 `;
 
 export default Typography;

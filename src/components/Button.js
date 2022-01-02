@@ -9,11 +9,14 @@ const ButtonSyles = styled.button`
   cursor: pointer;
 `;
 
-export default function Button(props) {
+export default function Button({path, text, icon}) {
   return (
-    <Link to={props.path}>
+    <Link to={path}>
       <ButtonSyles className="font-mono">
-        {props.text}
+        {text}
+        {icon != null &&
+            <span className="material-icons">{icon}</span>
+        }
       </ButtonSyles>
     </Link>
   )

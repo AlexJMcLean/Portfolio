@@ -11,6 +11,8 @@ const ContentStyles = styled.div`
     }
   }
   .subtext {
+    font-size: 1.3rem;
+    line-height: 2rem;
     max-width: 600px;
   }
   `;
