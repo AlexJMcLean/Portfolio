@@ -9,7 +9,7 @@ import MenuLinks from "./MenuLinks";
 const BodyStyles = styled.div`
   display: inline-block;
   min-width: 400px;
-  width: 70%;
+  width: 80%;
   max-width: 1000px;
   margin: 100px 0 100px 50px;
 
@@ -18,7 +18,6 @@ const BodyStyles = styled.div`
     position: absolute;
     left: 40%;
     transform: translateX(-40%);
-    margin-top: 200px;
   }
 `;
 

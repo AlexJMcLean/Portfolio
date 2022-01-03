@@ -3,11 +3,13 @@ import styled from "styled-components";
 import Button from "../components/Button";
 
 const ContentStyles = styled.div`
-  h1{
+  margin-top: 100px;
+
+  h1 {
     span {
       display: block;
       color: var(--slate);
-      font-size: .8em;
+      font-size: 0.8em;
     }
   }
   .subtext {
@@ -15,7 +17,7 @@ const ContentStyles = styled.div`
     line-height: 2rem;
     max-width: 600px;
   }
-  `;
+`;
 
 export default function Main() {
   return (
@@ -30,7 +32,7 @@ export default function Main() {
         specialising in building beautiful, well crafted designs in React and
         the .NET ecosystem. Currently I am building a CRM in C# with ASP.NET.
       </p>
-      <Button path="/portfolio" text="Check out my work"/>
+      <Button path="/portfolio" text="Check out my work" />
     </ContentStyles>
   );
 }
