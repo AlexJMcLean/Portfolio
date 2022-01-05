@@ -11,10 +11,8 @@ const IconListStyles = styled.div`
   }
 
   .icon {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
   }
 `;
 

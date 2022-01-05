@@ -56,10 +56,7 @@ const PageBodyStyles = styled.section`
   .experience-container {
     display: grid;
     gap: 2rem;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    @media (min-width: 1200px) {
-      grid-template-columns: 1fr 1fr;
-    }
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   }
 
   .info-container {

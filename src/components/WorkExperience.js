@@ -20,9 +20,6 @@ const EducationStyles = styled.div`
   .container {
     display: flex;
     flex-direction: column;
-    @media (max-width: 576px) {
-      width: calc(100vw - 100px);
-    }
   }
   .date {
     display: inline-block;

@@ -8,12 +8,10 @@ import MenuLinks from "./MenuLinks";
 
 const BodyStyles = styled.div`
   display: inline-block;
+  min-width: 400px;
   width: 80%;
   max-width: 1000px;
   margin: 100px 0 100px 50px;
-  @media (max-width: 576px) {
-    margin: 100px 20px;
-  }
 
   // Center the container on larger screens
   @media (min-width: 1300px) {
