@@ -15,7 +15,7 @@ const PageBodyStyles = styled.section`
   .box-border {
     max-width: 250px;
     border: solid 1px var(--green);
-    border-radius: 5px;
+    border-radius: var(--borderRadius);
     display: flex;
     flex-direction: column;
     padding: 0 50px;
@@ -34,7 +34,8 @@ const PageBodyStyles = styled.section`
   button {
     display: inline-block;
     font-family: var(--mono-font);
-    border: solid 1px var(--green);
+    border: var(--borderStyle);
+    border-radius: var(--borderRadius);
     background-color: transparent;
     color: var(--green);
     padding: 15px;

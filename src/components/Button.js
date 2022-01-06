@@ -5,7 +5,8 @@ import styled from "styled-components";
 const ButtonSyles = styled.button`
   background-color: rgba(0, 0, 0, 0);
   font-family: var(--mono-font);
-  border: solid 1px var(--green);
+  border: var(--borderStyle);
+  border-radius: var(--borderRadius);
   padding: 20px;
   cursor: pointer;
   transition: all 0.5s;
