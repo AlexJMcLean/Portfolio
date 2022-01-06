@@ -172,7 +172,7 @@ export default function Navbar({ isOpen, setOpen }) {
           </Link>
         </li>
         <li>
-          <Link to="/email" onClick={() => setOpen(!isOpen)}>
+          <Link to="/contact" onClick={() => setOpen(!isOpen)}>
             <span className="navTitle">Email</span>
             <span className="material-icons icon">email</span>
           </Link>

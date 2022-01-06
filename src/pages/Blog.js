@@ -1,9 +1,11 @@
 import React from "react";
 
+import PageTitle from "../components/PageTitle";
+
 export default function Blog(props) {
   return (
     <div>
-      <h1>Blog</h1>
+      <PageTitle text="Blog" />
     </div>
   );
 }
