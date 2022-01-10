@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import FileBase64 from "react-file-base64";
+import { useDispatch } from "react-redux";
+
+import { createPost } from "../actions/posts";
 
 const NewPostFormStyles = styled.div`
   display: grid;
@@ -52,6 +55,7 @@ const NewPostFormStyles = styled.div`
 `;
 
 export default function NewPosts(posts) {
+  const dispatch = useDispatch;
   const [formState, setFormState] = useState({
     title: "",
     image: "",
@@ -69,11 +73,12 @@ export default function NewPosts(posts) {
   };
 
   const handleSubmit = (e) => {
-    console.log(e);
+    e.preventDefault();
     setFormState((prevState) => ({
       ...prevState,
       date: new Date().toLocaleDateString("en-GB"),
     }));
+    dispatch(createPost(formState));
   };
 
   return (
