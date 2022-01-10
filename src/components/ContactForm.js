@@ -36,6 +36,11 @@ const ContactFormStyles = styled.div`
   }
   button {
     cursor: pointer;
+    transition: all 0.5s;
+    &:hover {
+      color: var(--navy);
+      background-color: var(--green);
+    }
   }
 
   .form-container {
@@ -64,9 +69,10 @@ export default function ContactForm() {
       ...prevState,
       [e.target.name]: e.target.value,
     }));
-  }
+  };
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setStatus("...Sending");
     console.log({ mailerState });
     const response = await fetch("http://localhost:5000/contact/send", {
       method: "POST",
@@ -76,13 +82,14 @@ export default function ContactForm() {
       body: JSON.stringify({ mailerState }),
     })
       .then((res) => res.json())
-      .then( async (res) => {
+      .then(async (res) => {
         const resData = await res;
         console.log(resData);
-        if (resData.status === 'success') {
-          alert("Message sent");
-        } else if (resData.status === 'fail') {
+        if (resData.status === "success") {
+          setStatus("Sent!");
+        } else if (resData.status === "fail") {
           alert("Message failed to send");
+          setStatus("Error!");
         }
       })
       .then(() => {
@@ -110,16 +117,30 @@ export default function ContactForm() {
       </div>
 
       <form onSubmit={handleSubmit}>
-        <input type="hidden" name="form-name" value="portfolio-contact"  />
+        <input type="hidden" name="form-name" value="portfolio-contact" />
         <div className="form-container">
           <div className="top-row">
             <div>
               <label htmlFor="name">Name</label>
-              <input type="text" id="name" name="name" onChange={handleStateChange} value={mailerState.name} required />
+              <input
+                type="text"
+                id="name"
+                name="name"
+                onChange={handleStateChange}
+                value={mailerState.name}
+                required
+              />
             </div>
             <div>
               <label htmlFor="email">Email</label>
-              <input type="email" id="email" name="email" onChange={handleStateChange} value={mailerState.email} required />
+              <input
+                type="email"
+                id="email"
+                name="email"
+                onChange={handleStateChange}
+                value={mailerState.email}
+                required
+              />
             </div>
           </div>
           <div>
