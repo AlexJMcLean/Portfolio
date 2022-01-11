@@ -55,7 +55,7 @@ const NewPostFormStyles = styled.div`
 `;
 
 export default function NewPosts(posts) {
-  const dispatch = useDispatch;
+  const dispatch = useDispatch();
   const [formState, setFormState] = useState({
     title: "",
     image: "",
@@ -85,7 +85,7 @@ export default function NewPosts(posts) {
     <NewPostFormStyles>
       <form autoComplete="off" onSubmit={handleSubmit}>
         <h2 className="title">
-          {formState.title == "" ? "New Post" : formState.title}
+          {formState.title === "" ? "New Post" : formState.title}
         </h2>
         <div>
           <div className="input-container">
