@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import FileBase64 from "react-file-base64";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { useAlert } from "react-alert";
 
 import { createPost } from "../actions/posts";
 
@@ -56,12 +58,15 @@ const NewPostFormStyles = styled.div`
 
 export default function NewPosts(posts) {
   const dispatch = useDispatch();
+  const alert = useAlert();
+  let navigate = useNavigate();
+  const [status, setStatus] = useState("Submit");
   const [formState, setFormState] = useState({
     title: "",
     image: "",
+    imageAlt: "",
     snippet: "",
     body: "",
-    author: "",
     date: "",
   });
 
@@ -72,13 +77,30 @@ export default function NewPosts(posts) {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setFormState((prevState) => ({
       ...prevState,
       date: new Date().toLocaleDateString("en-GB"),
     }));
-    dispatch(createPost(formState));
+    setStatus("Submiting...");
+    try {
+      await dispatch(createPost(formState));
+      setStatus("Success!");
+      setFormState({
+        title: "",
+        image: "",
+        imageAlt: "",
+        snippet: "",
+        body: "",
+        date: "",
+      });
+      navigate("/admin");
+      alert.success("Post uploaded successfully");
+    } catch (error) {
+      setStatus("Error");
+      alert.error("Error! Check console for more information");
+    }
   };
 
   return (
@@ -133,7 +155,18 @@ export default function NewPosts(posts) {
               }
             />
           </div>
-          <button type="submit">Submit</button>
+          <div className="input-container">
+            <label htmlFor="imageAlt">Image Alt</label>
+            <input
+              type="text"
+              id="imageAlt"
+              name="imageAlt"
+              onChange={handleStateChange}
+              value={formState.imageAlt}
+              required
+            />
+          </div>
+          <button type="submit">{status}</button>
         </div>
       </form>
     </NewPostFormStyles>
