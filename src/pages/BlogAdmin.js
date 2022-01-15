@@ -2,7 +2,11 @@ import React from "react";
 import { Route, Routes, useLocation } from "react-router";
 import styled from "styled-components";
 import { useSelector } from "react-redux";
-import { transitions, positions, Provider as AlertProvider } from "react-alert";
+import {
+  transitions,
+  positions,
+  Provider as AlertContainer,
+} from "react-alert";
 import AlertTemplate from "react-alert-template-basic";
 
 import Button from "../components/Button";
@@ -24,7 +28,7 @@ export default function BlogAdmin() {
 
   return (
     <>
-      <AlertProvider
+      <AlertContainer
         template={AlertTemplate}
         position={positions.MIDDLE}
         transition={transitions.FADE}
@@ -38,7 +42,7 @@ export default function BlogAdmin() {
           <Route path="/new" element={<NewPosts />} />
           <Route path="/" element={<PostList />} />
         </Routes>
-      </AlertProvider>
+      </AlertContainer>
     </>
   );
 }
