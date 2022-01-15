@@ -4,6 +4,7 @@ import FileBase64 from "react-file-base64";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useAlert } from "react-alert";
+import slugify from "react-slugify";
 
 import { createPost } from "../actions/posts";
 
@@ -63,37 +64,37 @@ export default function NewPosts(posts) {
   const [status, setStatus] = useState("Submit");
   const [formState, setFormState] = useState({
     title: "",
+    slug: "",
     image: "",
     imageAlt: "",
     snippet: "",
     body: "",
-    date: "",
+    date: new Date().toLocaleDateString("en-GB"),
   });
 
   const handleStateChange = (e) => {
     setFormState((prevState) => ({
       ...prevState,
       [e.target.name]: e.target.value,
+      slug: `/${slugify(formState.title)}`,
     }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setFormState((prevState) => ({
-      ...prevState,
-      date: new Date().toLocaleDateString("en-GB"),
-    }));
+    console.log(formState);
     setStatus("Submiting...");
     try {
       await dispatch(createPost(formState));
       setStatus("Success!");
       setFormState({
         title: "",
+        slug: "",
         image: "",
         imageAlt: "",
         snippet: "",
         body: "",
-        date: "",
+        date: new Date().toLocaleDateString("en-GB"),
       });
       navigate("/admin");
       alert.success("Post uploaded successfully");
