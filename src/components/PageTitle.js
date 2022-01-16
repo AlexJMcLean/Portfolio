@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const PageTitleStyles = styled.div`
   text-align: center;
-  margin-bottom: 100px;
+  margin-bottom: 70px;
   span {
     margin-left: -5px;
   }
