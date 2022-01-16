@@ -5,6 +5,6 @@ export default function posts(posts = [], action) {
     case "CREATE":
       return [...posts, action.payload];
     default:
-      return postMessage;
+      return posts;
   }
 }
