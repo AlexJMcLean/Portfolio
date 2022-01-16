@@ -3,6 +3,8 @@ import styled from "styled-components";
 
 const PostCardStyle = styled.a`
   background-color: var(--darkNavy);
+  border-radius: 10px;
+  overflow: hidden;
   img {
     max-width: 100%;
     border-bottom: solid 5px var(--green);
@@ -16,6 +18,7 @@ const PostCardStyle = styled.a`
   }
 
   &:hover {
+    transform: rotate(1deg);
     h2 {
       color: var(--green);
       scale: 1.1;
@@ -23,7 +26,6 @@ const PostCardStyle = styled.a`
     }
     cursor: pointer;
   }
-
 `;
 
 export default function Posts({ post }) {

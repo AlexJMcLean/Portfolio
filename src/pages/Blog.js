@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import styled from "styled-components";
 
 import PageTitle from "../components/PageTitle";
-import Post from "../components/Post";
+import Post from "../components/PostCard";
 import CircularLoader from "../components/CircularLoader";
 
 const GridContainerStyles = styled.section`
@@ -23,8 +23,10 @@ export default function Blog(props) {
       ) : (
         // console.log(posts)
         <GridContainerStyles>
-        {posts.map((post) => <Post key={posts.id} post={post} />)}
-      </GridContainerStyles>
+          {posts.map((post) => (
+            <Post key={posts.id} post={post} />
+          ))}
+        </GridContainerStyles>
       )}
     </div>
   );
