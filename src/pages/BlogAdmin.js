@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Route, Routes, useLocation } from "react-router";
 import styled from "styled-components";
 import { useSelector } from "react-redux";
@@ -14,17 +14,23 @@ import PageTitle from "../components/PageTitle";
 import NewPosts from "../components/NewPosts";
 import PostList from "../components/PostList";
 
-const AdminPanelStyles = styled.div``;
+const AdminPanelStyles = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+`;
 
 export default function BlogAdmin() {
   const posts = useSelector((state) => state.posts);
   const path = useLocation().pathname;
+  const [currentId, setCurrentId] = useState(null);
   let button;
   if (path === "/admin") {
-    button = <Button path="/admin/new" text="Create new post" />;
-  } else if (path === "/admin/new") {
+    button = <Button path="/admin/edit" text="Create new post" />;
+  } else if (path === "/admin/edit") {
     button = <Button path="/admin" text="Back to posts" />;
   }
+  let timeout = 5000;
 
   return (
     <>
@@ -32,15 +38,29 @@ export default function BlogAdmin() {
         template={AlertTemplate}
         position={positions.MIDDLE}
         transition={transitions.FADE}
-        timeout="5000"
+        timeout={timeout}
       >
         <PageTitle text="Blog Admin" />
         <AdminPanelStyles>
           <div className="Navigation-button">{button}</div>
         </AdminPanelStyles>
         <Routes>
-          <Route path="/new" element={<NewPosts />} />
-          <Route path="/" element={<PostList />} />
+          <Route
+            path="/edit"
+            element={
+              <NewPosts currentId={currentId} setCurrentId={setCurrentId} />
+            }
+          />
+          <Route
+            path="/"
+            element={
+              <PostList
+                posts={posts}
+                currentId={currentId}
+                setCurrentId={setCurrentId}
+              />
+            }
+          />
         </Routes>
       </AlertContainer>
     </>

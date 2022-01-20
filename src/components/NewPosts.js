@@ -1,12 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import FileBase64 from "react-file-base64";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useAlert } from "react-alert";
 import slugify from "react-slugify";
 
-import { createPost } from "../actions/posts";
+import { createPost, updatePost } from "../actions/posts";
 
 const NewPostFormStyles = styled.div`
   display: grid;
@@ -57,8 +57,12 @@ const NewPostFormStyles = styled.div`
   }
 `;
 
-export default function NewPosts(posts) {
+export default function NewPosts({ posts, currentId, setCurrentId }) {
   const dispatch = useDispatch();
+
+  const post = useSelector((state) =>
+    currentId ? state.posts.find((p) => p._id === currentId) : null
+  );
   const alert = useAlert();
   let navigate = useNavigate();
   const [status, setStatus] = useState("Submit");
@@ -85,7 +89,12 @@ export default function NewPosts(posts) {
     console.log(formState);
     setStatus("Submiting...");
     try {
-      await dispatch(createPost(formState));
+      if (currentId) {
+        await dispatch(updatePost(currentId, formState));
+      } else {
+        await dispatch(createPost(formState));
+        alert.success("Post uploaded successfully");
+      }
       setStatus("Success!");
       setFormState({
         title: "",
@@ -97,12 +106,17 @@ export default function NewPosts(posts) {
         date: new Date().toLocaleDateString("en-GB"),
       });
       navigate("/admin");
-      alert.success("Post uploaded successfully");
     } catch (error) {
       setStatus("Error");
       alert.error("Error! Check console for more information");
     }
   };
+
+  useEffect(() => {
+    if (post) {
+      setFormState(post);
+    }
+  }, [post]);
 
   return (
     <NewPostFormStyles>

@@ -24,7 +24,7 @@ export default function Blog(props) {
         // console.log(posts)
         <GridContainerStyles>
           {posts.map((post) => (
-            <Post key={posts.id} post={post} />
+            <Post key={posts._id} post={post} />
           ))}
         </GridContainerStyles>
       )}
