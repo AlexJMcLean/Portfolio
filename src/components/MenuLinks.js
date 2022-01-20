@@ -2,10 +2,8 @@ import React from "react";
 import { useState } from "react";
 import styled from "styled-components";
 import { Squash as Hamburger } from "hamburger-react";
-import logo from "../assets/b-logo-small.png";
 
 import Navbar from "./Navbar";
-
 
 const HamburgerStyle = styled.div`
   position: fixed;
@@ -14,16 +12,6 @@ const HamburgerStyle = styled.div`
   z-index: 3;
   @media (min-width: 577px) {
     display: none;
-  }
-`;
-
-const LogoStyle = styled.div`
-  position: fixed;
-  top: 35px;
-  left: 35px;
-  img {
-    height: 60px;
-    width: 60px;
   }
 `;
 
@@ -40,7 +28,7 @@ export default function MenuLinks() {
           size={35}
         />
       </HamburgerStyle>
-      <Navbar isOpen={isOpen} setOpen={setOpen}/>
+      <Navbar isOpen={isOpen} setOpen={setOpen} />
     </>
   );
 }
