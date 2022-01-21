@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Button from "../components/Button";
+import { Link } from "react-router-dom";
 
 const ContentStyles = styled.div`
   margin-top: 100px;
@@ -30,7 +31,7 @@ export default function Main() {
       <p className="subtext">
         I am a full-stack software developer in Northamptonshire, UK
         specialising in building beautiful, well crafted designs in React and
-        the .NET ecosystem. Currently I am building a CRM in C# with ASP.NET.
+        NodeJS. Currently I am building a CMS within this website found <Link to="/admin" >here.</Link>
       </p>
       <Button path="/portfolio" text="Check out my work" />
     </ContentStyles>
