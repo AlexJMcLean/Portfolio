@@ -33,10 +33,10 @@ To convert my images into Base64 to save space on my server and reduce the paylo
 
 #### Other minor Frameworks
 
-React Slugify: To convert the title of my Blog Posts into a slug.
-Axios: To assist with the fetching API.
-Hamburger React: To create well crafted and eautiful hanburger icons.
-React Alert: To create alerts for the status when posting/editing a blog post and portfolio item.
+React Slugify: To convert the title of my Blog Posts into a slug.\
+Axios: To assist with the fetching API.\
+Hamburger React: To create well crafted and eautiful hanburger icons.\
+React Alert: To create alerts for the status when posting/editing a blog post and portfolio item.\
 
 ## Inspiration
 
