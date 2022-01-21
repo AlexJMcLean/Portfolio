@@ -10,16 +10,22 @@ const ButtonSyles = styled.button`
   padding: 20px;
   cursor: pointer;
   transition: all 0.5s;
+  &.danger {
+    background-color: var(--danger);
+  }
   &:hover {
     color: var(--navy);
     background-color: var(--green);
   }
 `;
 
-export default function Button({ path, text, icon }) {
+export default function Button({ path, text, icon, click, style }) {
   return (
     <Link to={path}>
-      <ButtonSyles className="font-mono">
+      <ButtonSyles
+        className={"font-mono" + (style ? " " + style : "")}
+        onClick={click}
+      >
         {text}
         {icon != null && <span className="material-icons">{icon}</span>}
       </ButtonSyles>
