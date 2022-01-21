@@ -9,6 +9,7 @@ const GlobalStyles = createGlobalStyle`
     --slate: #A0A5C0;
     --lightSlate: #ccd6f6;
     --grey: #efefef;
+    --danger: #bb2124;
 
     --borderRadius: 5px;
     --borderStyle: solid 1px var(--green);
