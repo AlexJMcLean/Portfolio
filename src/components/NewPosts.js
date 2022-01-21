@@ -91,6 +91,7 @@ export default function NewPosts({ posts, currentId, setCurrentId }) {
     try {
       if (currentId) {
         await dispatch(updatePost(currentId, formState));
+        alert.success("Post updated successfully");
       } else {
         await dispatch(createPost(formState));
         alert.success("Post uploaded successfully");
