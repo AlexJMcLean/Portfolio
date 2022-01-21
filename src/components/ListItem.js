@@ -35,17 +35,9 @@ export default function ListItem({ post, setCurrentId }) {
       <div>{post.snippet}</div>
       <div>{post._id}</div>
       <div>
-        {/* <Button
-          path="/admin/edit"
-          text="Edit"
-          click=true
-        /> */}
-        <Link to="/admin/edit">
-          <ButtonSyles className="font-mono" onClick={handleClick}>
-            edit
-          </ButtonSyles>
-        </Link>
-        <Button path="/admin/new" text="Delete" />
+        <Button path="/admin/edit" text="Edit" click={handleClick} />
+
+        <Button path="/admin/new" text="Delete" style="danger" />
       </div>
     </ListItemStyles>
   );
