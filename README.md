@@ -1,70 +1,43 @@
-# Getting Started with Create React App
+# Alex McLean's Portfolio
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Hi!
+Thank you for looking at my Portfolio, I hope that you have found what you are looking for.\
+Here is a little more information about the portfolio
 
-## Available Scripts
+## Tech Stack
 
-In the project directory, you can run:
+This Portfolio is built with React and styled components on the front end with a number of frameworks to aid in the development of the website.\
+The back-end is built with NodeJs and Express, with the Database on MongoDb.
 
-### `npm start`
+### Frameworks and Libraries
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+#### Nodemailer
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+To build out the contact form functionality I used Nodemailer to connect the server to my Email, and have an email sent to me when a user submits a message on the contact form
 
-### `npm test`
+#### Redux
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+I used Redux to handle the state of my app, specifically regarding the Blog articles, log-in status, and Portfolio Items
 
-### `npm run build`
+#### React Router
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+I used React-Router to handle the routing within my app
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+#### Draft JS and Draft JS WYSIWYG
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+To build out the admin panel for creating my blog posts and portfolio items I used DraftJS to create a Rich text editor on my CMS pannel
 
-### `npm run eject`
+#### React File Base 64
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+To convert my images into Base64 to save space on my server and reduce the payload size, I used React File Base64 to convert them for me.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### Other minor Frameworks
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+React Slugify: To convert the title of my Blog Posts into a slug.
+Axios: To assist with the fetching API.
+Hamburger React: To create well crafted and eautiful hanburger icons.
+React Alert: To create alerts for the status when posting/editing a blog post and portfolio item.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Inspiration
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+I took design inspiration from [https://brittanychiang.com/](Brittany Chiang's) Portfolio and created a similar style for my Portfolio.
