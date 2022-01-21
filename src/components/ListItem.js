@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { deletePost } from "../actions/posts";
 
 import Button from "./Button";
 
@@ -28,7 +30,9 @@ const ButtonSyles = styled.button`
 `;
 
 export default function ListItem({ post, setCurrentId }) {
+  const dispatch = useDispatch();
   const handleClick = () => setCurrentId(post._id);
+  const handleClickDelete = () => dispatch(deletePost(post._id))
   return (
     <ListItemStyles>
       <div>{post.title}</div>
@@ -37,7 +41,7 @@ export default function ListItem({ post, setCurrentId }) {
       <div>
         <Button path="/admin/edit" text="Edit" click={handleClick} />
 
-        <Button path="/admin/new" text="Delete" style="danger" />
+        <Button path="/admin" text="Delete" style="danger" click={handleClickDelete}/>
       </div>
     </ListItemStyles>
   );

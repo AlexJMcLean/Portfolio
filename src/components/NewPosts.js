@@ -5,6 +5,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useAlert } from "react-alert";
 import slugify from "react-slugify";
+import { Editor } from "react-draft-wysiwyg";
+import { EditorState, convertToRaw, convertFromRaw } from "draft-js";
+import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 
 import { createPost, updatePost } from "../actions/posts";
 
@@ -12,12 +15,20 @@ const NewPostFormStyles = styled.div`
   display: grid;
   gap: 2rem;
   grid-template-rows: 1fr 2fr 5fr 1fr;
+  form {
+    background-color: var(--pureWhite);
+    padding: 30px 50px;
+    h2 {
+      color: var(--darkNavy);
+    }
+  }
 
   input,
   textarea,
-  button {
-    background-color: var(--darkNavy);
-    color: var(--slate);
+  button,
+  .editorClassName {
+    background-color: var(--white);
+    color: var(--darkNavy);
     border: var(--borderStyle);
     border-radius: var(--borderRadius);
     padding: 15px;
@@ -35,7 +46,7 @@ const NewPostFormStyles = styled.div`
   }
   label {
     display: block;
-    color: var(--slate);
+    color: var(--darkNavy);
     margin-bottom: 1rem;
   }
   textarea {
@@ -59,20 +70,23 @@ const NewPostFormStyles = styled.div`
 
 export default function NewPosts({ posts, currentId, setCurrentId }) {
   const dispatch = useDispatch();
+  const alert = useAlert();
+  const navigate = useNavigate();
 
   const post = useSelector((state) =>
     currentId ? state.posts.find((p) => p._id === currentId) : null
   );
-  const alert = useAlert();
-  let navigate = useNavigate();
   const [status, setStatus] = useState("Submit");
+  const [editorState, setEditorState] = React.useState(() =>
+    EditorState.createEmpty()
+  );
   const [formState, setFormState] = useState({
     title: "",
     slug: "",
     image: "",
     imageAlt: "",
     snippet: "",
-    body: "",
+    body: JSON.stringify(convertToRaw(editorState.getCurrentContent())),
     date: new Date().toLocaleDateString("en-GB"),
   });
 
@@ -81,6 +95,7 @@ export default function NewPosts({ posts, currentId, setCurrentId }) {
       ...prevState,
       [e.target.name]: e.target.value,
       slug: `/${slugify(formState.title)}`,
+      body: JSON.stringify(convertToRaw(editorState.getCurrentContent())),
     }));
   };
 
@@ -97,13 +112,14 @@ export default function NewPosts({ posts, currentId, setCurrentId }) {
         alert.success("Post uploaded successfully");
       }
       setStatus("Success!");
+      setEditorState(EditorState.createEmpty());
       setFormState({
         title: "",
         slug: "",
         image: "",
         imageAlt: "",
         snippet: "",
-        body: "",
+        body: editorState,
         date: new Date().toLocaleDateString("en-GB"),
       });
       navigate("/admin");
@@ -116,6 +132,9 @@ export default function NewPosts({ posts, currentId, setCurrentId }) {
   useEffect(() => {
     if (post) {
       setFormState(post);
+      setEditorState(
+        EditorState.createWithContent(convertFromRaw(JSON.parse(post.body)))
+      );
     }
   }, [post]);
 
@@ -150,7 +169,7 @@ export default function NewPosts({ posts, currentId, setCurrentId }) {
             ></textarea>
           </div>
           <div className="input-container">
-            <label htmlFor="body">Body</label>
+            {/* <label htmlFor="body">Body</label>
             <textarea
               type="text"
               id="body"
@@ -159,7 +178,14 @@ export default function NewPosts({ posts, currentId, setCurrentId }) {
               onChange={handleStateChange}
               value={formState.body}
               required
-            ></textarea>
+            ></textarea> */}
+            <Editor
+              editorState={editorState}
+              toolbarClassName="toolbarClassName"
+              wrapperClassName="wrapperClassName"
+              editorClassName="editorClassName"
+              onEditorStateChange={setEditorState}
+            />
           </div>
           <div className="input-container">
             <label htmlFor="File">Choose your image</label>

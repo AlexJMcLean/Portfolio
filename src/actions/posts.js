@@ -1,6 +1,4 @@
-import { disconnect } from "mongoose";
 import * as api from "../api";
-import PageTitle from "../components/PageTitle";
 
 export const getPosts = () => async (dispatch) => {
   try {
@@ -38,6 +36,6 @@ export const deletePost = (id) => async (dispatch) => {
 
     dispatch({ type: "DELETE", payload: id });
   } catch (error) {
-    console.log(error);
+    console.log(error.message);
   }
 };
