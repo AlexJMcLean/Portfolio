@@ -27,17 +27,16 @@ I used React-Router to handle the routing within my app
 
 To build out the admin panel for creating my blog posts and portfolio items I used DraftJS to create a Rich text editor on my CMS pannel
 
-#### React File Base 64
-
-To convert my images into Base64 to save space on my server and reduce the payload size, I used React File Base64 to convert them for me.
-
-#### Other minor Frameworks
+#### Other Minor Frameworks
 
 React Slugify: To convert the title of my Blog Posts into a slug.\
 Axios: To assist with the fetching API.\
 Hamburger React: To create well crafted and eautiful hanburger icons.\
 React Alert: To create alerts for the status when posting/editing a blog post and portfolio item.\
+React File Base 64: To convert my images into Base64 to save space on my server and reduce the payload size.
 
 ## Inspiration
 
-I took design inspiration from [https://brittanychiang.com/](Brittany Chiang's) Portfolio and created a similar style for my Portfolio.
+I took design inspiration from Brittany Chiang's Portfolio and created a similar style for my Portfolio. [https://brittanychiang.com/]
+
+For technichal aspects I used Javascript Mastery's Full Stack MERN Youtube course to help develop aspects such as the CRUD functionality for the blog/Portfolio and the Auth Login Feature [https://www.youtube.com/playlist?list=PL6QREj8te1P7VSwhrMf3D3Xt4V6_SRkhu]
