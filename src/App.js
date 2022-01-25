@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
@@ -9,7 +10,7 @@ import Portfolio from "./pages/Portfolio";
 import Contact from "./pages/Contact";
 import About from "./pages/About";
 import BlogAdmin from "./pages/BlogAdmin";
-import { useEffect } from "react";
+import Auth from "./pages/Auth";
 
 function App() {
   const dispatch = useDispatch();
@@ -26,6 +27,7 @@ function App() {
         <Route path="portfolio" element={<Portfolio />} />
         <Route path="contact" element={<Contact />} />
         <Route path="admin/*" element={<BlogAdmin />} />
+        <Route path="auth" element={<Auth />} />
         <Route path="/" element={<Main />} />
       </Routes>
     </Layout>
