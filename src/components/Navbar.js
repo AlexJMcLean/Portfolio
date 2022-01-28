@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import decode from "jwt-decode";
+
+import * as actionType from "../constants/constants";
 
 const NavStyles = styled.nav`
   height: 100vh;
@@ -144,6 +148,27 @@ const NavStyles = styled.nav`
 `;
 
 export default function Navbar({ isOpen, setOpen }) {
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const logout = () => {
+    dispatch({ type: actionType.LOGOUT });
+    navigate("/");
+    setUser(null);
+  };
+
+  useEffect(() => {
+    const token = user?.token;
+    if (token) {
+      const decodedToken = decode(token);
+
+      if (decodedToken.exp * 1000 < new Date().getTime()) logout();
+    }
+    setUser(JSON.parse(localStorage.getItem("profile")));
+  }, [location]);
+
   return (
     <NavStyles open={isOpen}>
       <ul>
@@ -177,6 +202,20 @@ export default function Navbar({ isOpen, setOpen }) {
             <span className="material-icons icon">email</span>
           </Link>
         </li>
+        {user?.result && (
+          <li>
+            <Link
+              to="/"
+              onClick={() => {
+                setOpen(!isOpen);
+                logout();
+              }}
+            >
+              <span className="navTitle">Logout</span>
+              <span className="material-icons icon">logout</span>
+            </Link>
+          </li>
+        )}
       </ul>
     </NavStyles>
   );
