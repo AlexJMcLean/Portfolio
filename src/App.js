@@ -11,6 +11,7 @@ import Contact from "./pages/Contact";
 import About from "./pages/About";
 import BlogAdmin from "./pages/BlogAdmin";
 import Auth from "./pages/Auth";
+import PrivateRoute from "./components/PrivateRoute";
 
 function App() {
   const dispatch = useDispatch();
@@ -26,8 +27,15 @@ function App() {
         <Route path="about" element={<About />} />
         <Route path="portfolio" element={<Portfolio />} />
         <Route path="contact" element={<Contact />} />
-        <Route path="admin/*" element={<BlogAdmin />} />
-        <Route path="auth" element={<Auth />} />
+        <Route
+          path="admin/*"
+          element={
+            <PrivateRoute>
+              <BlogAdmin />
+            </PrivateRoute>
+          }
+        />
+        <Route path="login" element={<Auth />} />
         <Route path="/" element={<Main />} />
       </Routes>
     </Layout>
