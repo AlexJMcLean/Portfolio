@@ -74,7 +74,7 @@ export default function ContactForm() {
     e.preventDefault();
     setStatus("...Sending");
     console.log({ mailerState });
-    const response = await fetch("http://localhost:5000/contact/send", {
+    const response = await fetch("http://localhost:4000/contact/send", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
