@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import styled from "styled-components";
 
 import PageTitle from "../components/PageTitle";
-import { signin, signup } from "../actions/auth";
+import { signin, signup, demo } from "../actions/auth";
 
 const initialState = {
   email: "",
@@ -61,11 +61,15 @@ export default function Auth() {
     dispatch(signin(formState, navigate));
   };
 
+  const handleDemo = async (e) => {
+    e.preventDefault();
+    dispatch(demo(navigate));
+  };
   return (
     <>
       <PageTitle text="Log in" />
       <LoginFormStyles>
-        <form onSubmit={handleSubmit}>
+        <form>
           <div className="input-container">
             <label>Email</label>
             <input
@@ -86,7 +90,12 @@ export default function Auth() {
               value={formState.password}
             />
           </div>
-          <button type="submit">Log in</button>
+          <button type="submit" onClick={handleSubmit}>
+            Log in
+          </button>
+          <button type="submit" onClick={handleDemo}>
+            Demo
+          </button>
         </form>
       </LoginFormStyles>
     </>
