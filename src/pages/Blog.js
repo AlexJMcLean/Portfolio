@@ -21,7 +21,6 @@ export default function Blog(props) {
       {!posts.length ? (
         <CircularLoader />
       ) : (
-        // console.log(posts)
         <GridContainerStyles>
           {posts.map((post) => (
             <Post key={posts._id} post={post} />

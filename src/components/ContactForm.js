@@ -73,7 +73,6 @@ export default function ContactForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus("...Sending");
-    console.log({ mailerState });
     const response = await fetch("http://localhost:4000/contact/send", {
       method: "POST",
       headers: {
@@ -84,7 +83,6 @@ export default function ContactForm() {
       .then((res) => res.json())
       .then(async (res) => {
         const resData = await res;
-        console.log(resData);
         if (resData.status === "success") {
           setStatus("Sent!");
         } else if (resData.status === "fail") {

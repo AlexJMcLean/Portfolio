@@ -107,7 +107,6 @@ export default function NewPosts({ posts, currentId, setCurrentId, userRole }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formState);
     setStatus("Submiting...");
     try {
       if (currentId) {

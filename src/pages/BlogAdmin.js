@@ -24,7 +24,6 @@ export default function BlogAdmin() {
   const posts = useSelector((state) => state.posts);
   const userRole = JSON.parse(localStorage.getItem("profile")).result.role;
 
-  console.log(userRole);
   const path = useLocation().pathname;
   const [currentId, setCurrentId] = useState(null);
   let button;
