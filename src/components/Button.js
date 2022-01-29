@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const ButtonSyles = styled.button`
-  background-color: rgba(0, 0, 0, 0);
+  background-color: ${(props) =>
+    !props.disabled ? "rgba(0, 0, 0, 0)" : "var(--slate)"};
   font-family: var(--mono-font);
   border: var(--borderStyle);
   border-radius: var(--borderRadius);
@@ -11,20 +12,22 @@ const ButtonSyles = styled.button`
   cursor: pointer;
   transition: all 0.5s;
   &.danger {
-    background-color: var(--danger);
+    background-color: ${(props) =>
+      !props.disabled ? "var(--danger)" : "var(--slate)"};
   }
   &:hover {
-    color: var(--navy);
-    background-color: var(--green);
+    color: ${(props) => (!props.disabled ? "var(--navy)" : "")};
+    background-color: ${(props) => (!props.disabled ? "var(--green)" : "")};
   }
 `;
 
-export default function Button({ path, text, icon, click, style }) {
+export default function Button({ path, text, icon, click, style, disabled }) {
   return (
     <Link to={path}>
       <ButtonSyles
         className={"font-mono" + (style ? " " + style : "")}
         onClick={click}
+        disabled={disabled}
       >
         {text}
         {icon != null && <span className="material-icons">{icon}</span>}

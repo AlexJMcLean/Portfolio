@@ -15,24 +15,12 @@ const ListItemStyles = styled.div`
   border: var(--borderStyle);
 `;
 
-const ButtonSyles = styled.button`
-  background-color: rgba(0, 0, 0, 0);
-  font-family: var(--mono-font);
-  border: var(--borderStyle);
-  border-radius: var(--borderRadius);
-  padding: 20px;
-  cursor: pointer;
-  transition: all 0.5s;
-  &:hover {
-    color: var(--navy);
-    background-color: var(--green);
-  }
-`;
-
-export default function ListItem({ post, setCurrentId }) {
+export default function ListItem({ post, setCurrentId, userRole }) {
   const dispatch = useDispatch();
   const handleClick = () => setCurrentId(post._id);
-  const handleClickDelete = () => dispatch(deletePost(post._id))
+  const handleClickDelete = () => dispatch(deletePost(post._id));
+  let isDisabled = userRole === "demo" && true;
+
   return (
     <ListItemStyles>
       <div>{post.title}</div>
@@ -41,7 +29,13 @@ export default function ListItem({ post, setCurrentId }) {
       <div>
         <Button path="/admin/edit" text="Edit" click={handleClick} />
 
-        <Button path="/admin" text="Delete" style="danger" click={handleClickDelete}/>
+        <Button
+          path="/admin"
+          text="Delete"
+          style="danger"
+          click={handleClickDelete}
+          disabled={isDisabled}
+        />
       </div>
     </ListItemStyles>
   );

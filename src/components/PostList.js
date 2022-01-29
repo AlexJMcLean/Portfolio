@@ -7,7 +7,7 @@ import ListItem from "./ListItem";
 
 const ListContainerStyles = styled.section``;
 
-export default function PostList({ posts, setCurrentId }) {
+export default function PostList({ posts, setCurrentId, userRole }) {
   return (
     <>
       {!posts.length ? (
@@ -15,7 +15,12 @@ export default function PostList({ posts, setCurrentId }) {
       ) : (
         <ListContainerStyles>
           {posts.map((post) => (
-            <ListItem key={post._id} post={post} setCurrentId={setCurrentId} />
+            <ListItem
+              key={post._id}
+              post={post}
+              setCurrentId={setCurrentId}
+              userRole={userRole}
+            />
           ))}
         </ListContainerStyles>
       )}

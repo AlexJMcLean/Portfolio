@@ -59,6 +59,11 @@ const NewPostFormStyles = styled.div`
       color: var(--navy);
       background-color: var(--green);
     }
+    &:disabled {
+      background-color: var(--slate);
+      color: var(--navy);
+      cursor: auto;
+    }
   }
   .input-container {
     margin-bottom: 2rem;
@@ -68,10 +73,11 @@ const NewPostFormStyles = styled.div`
   }
 `;
 
-export default function NewPosts({ posts, currentId, setCurrentId }) {
+export default function NewPosts({ posts, currentId, setCurrentId, userRole }) {
   const dispatch = useDispatch();
   const alert = useAlert();
   const navigate = useNavigate();
+  let isDisabled = userRole === "demo" && true;
 
   const post = useSelector((state) =>
     currentId ? state.posts.find((p) => p._id === currentId) : null
@@ -208,7 +214,9 @@ export default function NewPosts({ posts, currentId, setCurrentId }) {
               required
             />
           </div>
-          <button type="submit">{status}</button>
+          <button type="submit" disabled={isDisabled}>
+            {status}
+          </button>
         </div>
       </form>
     </NewPostFormStyles>

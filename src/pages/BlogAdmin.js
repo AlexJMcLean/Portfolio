@@ -22,9 +22,13 @@ const AdminPanelStyles = styled.div`
 
 export default function BlogAdmin() {
   const posts = useSelector((state) => state.posts);
+  const userRole = JSON.parse(localStorage.getItem("profile")).result.role;
+
+  console.log(userRole);
   const path = useLocation().pathname;
   const [currentId, setCurrentId] = useState(null);
   let button;
+
   if (path === "/admin") {
     button = <Button path="/admin/edit" text="Create new post" />;
   } else if (path === "/admin/edit") {
@@ -48,7 +52,11 @@ export default function BlogAdmin() {
           <Route
             path="/edit"
             element={
-              <NewPosts currentId={currentId} setCurrentId={setCurrentId} />
+              <NewPosts
+                currentId={currentId}
+                setCurrentId={setCurrentId}
+                userRole={userRole}
+              />
             }
           />
           <Route
@@ -58,6 +66,7 @@ export default function BlogAdmin() {
                 posts={posts}
                 currentId={currentId}
                 setCurrentId={setCurrentId}
+                userRole={userRole}
               />
             }
           />
