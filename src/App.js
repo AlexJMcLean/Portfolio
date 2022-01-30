@@ -11,6 +11,7 @@ import Contact from "./pages/Contact";
 import About from "./pages/About";
 import BlogAdmin from "./pages/BlogAdmin";
 import Auth from "./pages/Auth";
+import SinglePost from "./components/SinglePost";
 import PrivateRoute from "./components/PrivateRoute";
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
     <Layout>
       <Routes>
         <Route path="blog" element={<Blog />} />
+        <Route path="blog/:id" component={<SinglePost />} />
         <Route path="about" element={<About />} />
         <Route path="portfolio" element={<Portfolio />} />
         <Route path="contact" element={<Contact />} />

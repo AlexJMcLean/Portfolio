@@ -1,7 +1,8 @@
 import React from "react";
+import { useNavigate } from "react-router";
 import styled from "styled-components";
 
-const PostCardStyle = styled.a`
+const PostCardStyle = styled.div`
   background-color: var(--darkNavy);
   border-radius: 10px;
   overflow: hidden;
@@ -29,8 +30,10 @@ const PostCardStyle = styled.a`
 `;
 
 export default function Posts({ post }) {
+  const navigate = useNavigate();
+  const openPost = () => navigate(`/blog/${post.slug}`);
   return (
-    <PostCardStyle>
+    <PostCardStyle onClick={openPost}>
       <img src={post.image} alt={post.imageAlt || post.title} />
       <div className="text-container">
         <h2>{post.title}</h2>

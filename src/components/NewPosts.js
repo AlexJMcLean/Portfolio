@@ -100,7 +100,7 @@ export default function NewPosts({ posts, currentId, setCurrentId, userRole }) {
     setFormState((prevState) => ({
       ...prevState,
       [e.target.name]: e.target.value,
-      slug: `/${slugify(formState.title)}`,
+      slug: `${slugify(formState.title)}`,
       body: JSON.stringify(convertToRaw(editorState.getCurrentContent())),
     }));
   };

@@ -21,7 +21,8 @@ const AdminPanelStyles = styled.div`
 `;
 
 export default function BlogAdmin() {
-  const posts = useSelector((state) => state.posts);
+  const { posts } = useSelector((state) => state.posts);
+
   const userRole = JSON.parse(localStorage.getItem("profile")).result.role;
 
   const path = useLocation().pathname;

@@ -1,11 +1,27 @@
-import { FETCH_ALL, CREATE, UPDATE, DELETE } from "../constants/constants";
+import {
+  FETCH_ALL,
+  FETCH_POST,
+  CREATE,
+  UPDATE,
+  DELETE,
+} from "../constants/constants";
 import * as api from "../api";
 
 export const getPosts = () => async (dispatch) => {
   try {
     const { data } = await api.fetchPosts();
 
-    dispatch({ type: FETCH_ALL, payload: data });
+    dispatch({ type: FETCH_ALL, payload: { data } });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const getPost = (slug) => async (dispatch) => {
+  try {
+    const { data } = await api.fetchPost(slug);
+
+    dispatch({ type: FETCH_POST, payload: { post: data } });
   } catch (error) {
     console.log(error);
   }

@@ -13,7 +13,7 @@ const GridContainerStyles = styled.section`
 `;
 
 export default function Blog(props) {
-  const posts = useSelector((state) => state.posts);
+  const { posts } = useSelector((state) => state.posts);
 
   return (
     <div>
