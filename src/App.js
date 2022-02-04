@@ -25,7 +25,7 @@ function App() {
     <Layout>
       <Routes>
         <Route path="blog" element={<Blog />} />
-        <Route path="blog/:id" component={<SinglePost />} />
+        <Route path="blog/:slug" element={<SinglePost />} />
         <Route path="about" element={<About />} />
         <Route path="portfolio" element={<Portfolio />} />
         <Route path="contact" element={<Contact />} />
