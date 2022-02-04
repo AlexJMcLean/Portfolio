@@ -31,7 +31,6 @@ export default function SinglePost() {
   const [editorState, setEditorState] = React.useState(() =>
     EditorState.createEmpty()
   );
-  console.log(post);
 
   useEffect(() => {
     dispatch(getPost(slug));
