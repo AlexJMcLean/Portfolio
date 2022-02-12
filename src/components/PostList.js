@@ -7,10 +7,11 @@ import ListItem from "./ListItem";
 
 const ListContainerStyles = styled.section``;
 
-export default function PostList({ posts, setCurrentId, userRole }) {
+export default function PostList({ posts, isLoading, setCurrentId, userRole }) {
+  console.log(posts);
   return (
     <>
-      {!posts.length ? (
+      {isLoading ? (
         <CircularLoader />
       ) : (
         <ListContainerStyles>

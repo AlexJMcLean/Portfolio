@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 
 function PrivateRoute({ children }) {
   const { authData } = useSelector((state) => state.auth);
+  console.log(authData);
   if (authData === null) {
     return <Navigate to="/login" replace />;
   }
