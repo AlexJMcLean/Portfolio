@@ -18,7 +18,7 @@ export default function Blog(props) {
   return (
     <div>
       <PageTitle text="Blog" />
-      {!posts.length ? (
+      {!posts?.length ? (
         <CircularLoader />
       ) : (
         <GridContainerStyles>

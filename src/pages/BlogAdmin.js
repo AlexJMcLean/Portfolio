@@ -9,11 +9,12 @@ import {
 } from "react-alert";
 import AlertTemplate from "react-alert-template-basic";
 
+import { getPosts } from "../actions/posts";
 import Button from "../components/Button";
 import PageTitle from "../components/PageTitle";
 import NewPosts from "../components/NewPosts";
 import PostList from "../components/PostList";
-import { getPosts } from "../actions/posts";
+import CircularLoader from "../components/CircularLoader";
 
 const AdminPanelStyles = styled.div`
   display: flex;
@@ -23,7 +24,7 @@ const AdminPanelStyles = styled.div`
 // { posts, isLoading }
 export default function BlogAdmin() {
   const dispatch = useDispatch();
-  const posts = useSelector((state) => state.posts);
+  const { posts } = useSelector((state) => state.posts);
   const isLoading = useSelector((state) => state.posts.isLoading);
   console.log(posts);
   const userRole = JSON.parse(localStorage.getItem("profile")).result.role;
@@ -69,13 +70,17 @@ export default function BlogAdmin() {
           <Route
             path="/"
             element={
-              <PostList
-                posts={posts}
-                isLoading={isLoading}
-                currentId={currentId}
-                setCurrentId={setCurrentId}
-                userRole={userRole}
-              />
+              !posts?.length ? (
+                <CircularLoader />
+              ) : (
+                <PostList
+                  posts={posts}
+                  isLoading={isLoading}
+                  currentId={currentId}
+                  setCurrentId={setCurrentId}
+                  userRole={userRole}
+                />
+              )
             }
           />
         </Routes>
