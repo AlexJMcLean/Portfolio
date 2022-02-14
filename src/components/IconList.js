@@ -12,7 +12,7 @@ const IconListStyles = styled.div`
 
   .icon {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
   }
 `;
 
@@ -20,6 +20,7 @@ const IconStyles = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 0 10px;
   img {
     height: 50px;
     margin: 0 auto 10px;

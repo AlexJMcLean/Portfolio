@@ -31,7 +31,7 @@ const PageBodyStyles = styled.section`
     }
   }
 
-  button {
+  a {
     display: inline-block;
     font-family: var(--mono-font);
     border: var(--borderStyle);
@@ -57,7 +57,7 @@ const PageBodyStyles = styled.section`
   .experience-container {
     display: grid;
     gap: 2rem;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   }
 
   .info-container {
@@ -99,10 +99,10 @@ export default function About(props) {
               side web applications, which is where I found my passion, and now
               want to pursue software engineering as a career.
             </p>
-            <button href="../assets/b-logo-small.png" download>
+            <a href="../assets/Alex_McLean_CV.pdf" download>
               Download Cv
               <span className="material-icons">file_download</span>
-            </button>
+            </a>
           </div>
           <div className="box-border">
             <h3>Information</h3>

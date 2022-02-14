@@ -14,6 +14,11 @@ const initialState = {
 const LoginFormStyles = styled.div`
   width: 70%;
   margin: 0 auto;
+
+  @media (max-width: 576px) {
+    width: 85%;
+  }
+
   form {
     display: flex;
     flex-direction: column;
@@ -33,13 +38,16 @@ const LoginFormStyles = styled.div`
 
       input {
         width: 50%;
+        min-width: 150px;
         margin-top: 10px;
         padding: 5px;
       }
     }
     button {
       width: calc(50% + 10px);
+      min-width: 160px;
       padding: 5px;
+      margin-bottom: 20px;
     }
   }
 `;

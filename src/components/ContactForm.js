@@ -6,6 +6,10 @@ const ContactFormStyles = styled.div`
   gap: 2rem;
   grid-template-columns: 1.5fr 2fr;
 
+  @media (max-width: 576px) {
+    display: block;
+  }
+
   input,
   textarea,
   button {

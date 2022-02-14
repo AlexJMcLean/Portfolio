@@ -20,6 +20,7 @@ const AdminPanelStyles = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
+  margin-bottom: 25px;
 `;
 // { posts, isLoading }
 export default function BlogAdmin() {

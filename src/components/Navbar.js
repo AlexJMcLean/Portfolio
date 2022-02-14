@@ -18,7 +18,7 @@ const NavStyles = styled.nav`
     background: var(--darkNavy);
     width: 100vw;
     text-align: left;
-    position: absolute;
+    position: ${({ open }) => (open ? "sticky" : "absolute")};
     top: 0;
     left: 0;
     z-index: 2;
