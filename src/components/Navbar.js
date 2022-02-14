@@ -152,7 +152,6 @@ export default function Navbar({ isOpen, setOpen }) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
-
   const logout = () => {
     dispatch({ type: actionType.LOGOUT });
     navigate("/");
@@ -167,7 +166,8 @@ export default function Navbar({ isOpen, setOpen }) {
       if (decodedToken.exp * 1000 < new Date().getTime()) logout();
     }
     setUser(JSON.parse(localStorage.getItem("profile")));
-  }, [location]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [location, user]);
 
   return (
     <NavStyles open={isOpen}>

@@ -1,6 +1,5 @@
-import React, { useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { deletePost } from "../actions/posts";
 
@@ -32,7 +31,7 @@ export default function ListItem({ post, setCurrentId, userRole }) {
         <Button
           path="/admin"
           text="Delete"
-          style="danger"
+          warnings="danger"
           click={handleClickDelete}
           disabled={isDisabled}
         />

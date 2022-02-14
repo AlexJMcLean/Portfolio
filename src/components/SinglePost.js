@@ -26,7 +26,6 @@ export default function SinglePost() {
   let post = useSelector((state) => state.posts?.post);
   let { isLoading } = useSelector((state) => state.posts);
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const { slug } = useParams();
   const [editorState, setEditorState] = React.useState(() =>
     EditorState.createEmpty()

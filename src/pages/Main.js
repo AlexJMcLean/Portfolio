@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import Button from "../components/Button";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
 
 const ContentStyles = styled.div`
   margin-top: 100px;

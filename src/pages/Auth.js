@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import styled from "styled-components";
 
 import PageTitle from "../components/PageTitle";
-import { signin, signup, demo } from "../actions/auth";
+import { signin, demo } from "../actions/auth";
 
 const initialState = {
   email: "",

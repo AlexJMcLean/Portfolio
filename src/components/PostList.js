@@ -1,6 +1,5 @@
-import React, { useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 
 import CircularLoader from "../components/CircularLoader";
 import ListItem from "./ListItem";

@@ -21,11 +21,18 @@ const ButtonSyles = styled.button`
   }
 `;
 
-export default function Button({ path, text, icon, click, style, disabled }) {
+export default function Button({
+  path,
+  text,
+  icon,
+  click,
+  warnings,
+  disabled,
+}) {
   return (
     <Link to={path}>
       <ButtonSyles
-        className={"font-mono" + (style ? " " + style : "")}
+        className={"font-mono" + (warnings ? " " + warnings : "")}
         onClick={click}
         disabled={disabled}
       >
