@@ -57,7 +57,7 @@ const PageBodyStyles = styled.section`
   .experience-container {
     display: grid;
     gap: 2rem;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   }
 
   .info-container {
@@ -125,7 +125,7 @@ export default function About(props) {
           />
           <WorkExperience
             date="2018 - 2019"
-            name="Rectory Nusesry - Deputy Manager"
+            name="Rectory Nursery - Deputy Manager"
             description="Managed a team of 6 within the nursery setting and assisted in overall management of the nursery"
           />
           <WorkExperience
