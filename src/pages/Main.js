@@ -17,6 +17,9 @@ const ContentStyles = styled.div`
     font-size: 1.3rem;
     line-height: 2rem;
     max-width: 600px;
+    a {
+      color: var(--green);
+    }
   }
 `;
 
