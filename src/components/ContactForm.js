@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
+import { sendContactForm } from "../api";
+
 const ContactFormStyles = styled.div`
   display: grid;
   gap: 2rem;
@@ -77,19 +79,11 @@ export default function ContactForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus("...Sending");
-    const response = await fetch("http://localhost:4000/contact/send", {
-      method: "POST",
-      headers: {
-        "Content-type": "application/json",
-      },
-      body: JSON.stringify({ mailerState }),
-    })
-      .then((res) => res.json())
-      .then(async (res) => {
-        const resData = await res;
-        if (resData.status === "success") {
+    await sendContactForm({ mailerState })
+      .then((res) => {
+        if (res.status === 200) {
           setStatus("Sent!");
-        } else if (resData.status === "fail") {
+        } else if (res.status !== 200) {
           alert("Message failed to send");
           setStatus("Error!");
         }
