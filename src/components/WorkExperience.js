@@ -55,13 +55,13 @@ const EducationStyles = styled.div`
   }
 `;
 
-export default function WorkExperience({ date, name, description }) {
+export default function WorkExperience({ extraInfo, name, description }) {
   return (
     <EducationStyles>
       <div className="material-icons icon">apartment</div>
       <div className="container">
         <div>
-          <p className="date">{date}</p>
+          <p className="date">{extraInfo}</p>
           <div className="arrow-right"></div>
         </div>
         <h3>{name}</h3>

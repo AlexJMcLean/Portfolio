@@ -74,10 +74,10 @@ const PageBodyStyles = styled.section`
 export default function About(props) {
   const languages = data.icons;
   return (
-    <>
+    <main>
       <PageTitle text="About Me" />
       <PageBodyStyles>
-        <div className="info-container">
+        <section className="info-container">
           <div>
             <h2>
               Who am I<span>?</span>
@@ -115,32 +115,32 @@ export default function About(props) {
             <h4>Email:</h4>
             <p>alexmcl@hotmail.co.uk</p>
           </div>
-        </div>
+        </section>
         <h2>Experience & Education</h2>
-        <div className="experience-container">
+        <section className="experience-container">
           <WorkExperience
-            date="2019 - Present"
+            extraInfo="2019 - Present"
             name="E-commerce Artisans - Freelance"
             description="Created themes and custom development of features on the Shopify platform"
           />
           <WorkExperience
-            date="2018 - 2019"
+            extraInfo="2018 - 2019"
             name="Rectory Nursery - Deputy Manager"
             description="Managed a team of 6 within the nursery setting and assisted in overall management of the nursery"
           />
           <WorkExperience
-            date="2017 - 2020"
+            extraInfo="2017 - 2020"
             name="Univerity of Hertfordshire - Bachelor of Arts"
             description="BA in Early Childhood and Education, I completed this while working full time."
           />
           <WorkExperience
-            date="2012 - 2018"
+            extraInfo="2012 - 2018"
             name="Various Roles within the Early years Sector"
             description="I undertook a number of roles within the early years sector helping develop high quality teaching and learning experiences"
           />
-        </div>
+        </section>
         <IconList languages={languages} />
       </PageBodyStyles>
-    </>
+    </main>
   );
 }
