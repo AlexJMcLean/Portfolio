@@ -4,7 +4,7 @@ import PageTitle from "../components/PageTitle";
 import PortfolioItem from "../components/PortfolioItem";
 
 import emailServerImg from "../assets/emailServer.png";
-import ecomerceArtisansImg from "../assets/ecomerceArtisans.png";
+import ecomerceArtisansImg from "../assets/ecommerceArtisans.png";
 
 export default function Portfolio(props) {
   return (
