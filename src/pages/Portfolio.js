@@ -4,6 +4,7 @@ import PageTitle from "../components/PageTitle";
 import PortfolioItem from "../components/PortfolioItem";
 
 import emailServerImg from "../assets/emailServer.png";
+import ecomerceArtisansImg from "../assets/ecomerceArtisans.png";
 
 export default function Portfolio(props) {
   return (
@@ -20,6 +21,14 @@ export default function Portfolio(props) {
           image={emailServerImg}
           github="https://github.com/AlexJMcLean/emailServer"
           liveLink="/contact"
+        />
+        <PortfolioItem
+          name="Freelance Portfolio"
+          extraInfo="HTML, CSS, Javascript, Liquid"
+          description="I have successfully ran a freelance web development and desing agency utilising the Shopify platform to create custom websites and 
+          impliment aditional features for clients"
+          image={ecomerceArtisansImg}
+          liveLink="https://www.ecommerceartisans.co.uk/our-work"
         />
       </section>
     </div>
