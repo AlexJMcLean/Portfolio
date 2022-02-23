@@ -8,6 +8,7 @@ const PortfolioItemStyles = styled.div`
   display: grid;
   grid-template-columns: 60px 1fr;
   position: relative;
+  margin-bottom: 20px;
 
   .icon {
     background-color: var(--green);
@@ -112,7 +113,7 @@ export default function PortfolioItem({
               <>
                 <a href={liveLink} rel="noreferrer noopener" target="_blank">
                   <img src={linkTo} alt="link" className="link-icon" />
-                  Preview
+                  View
                 </a>
               </>
             )}
