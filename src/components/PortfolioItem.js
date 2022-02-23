@@ -8,7 +8,7 @@ const PortfolioItemStyles = styled.div`
   display: grid;
   grid-template-columns: 60px 1fr;
   position: relative;
-  margin-bottom: 20px;
+  margin-bottom: 60px;
 
   .icon {
     background-color: var(--green);
